@@ -1,0 +1,21 @@
+<body>
+  <start-toolbar></start-toolbar>
+  <h3 class="header">Login</h3>
+
+    <div class="container">
+      <div class="fields">
+          <mat-label>Email:</mat-label>
+          <mat-form-field appearance="fill">
+            <input matInput  [(ngModel)]="user.email">
+          </mat-form-field><br>
+          <mat-label>Password:</mat-label>
+          <mat-form-field appearance="fill">
+            <input matInput type="password" [(ngModel)]="user.password">
+          </mat-form-field><br>
+        </div>
+        <button class="btn" mat-stroked-button (click)="login()">
+          Login
+        </button>
+      </div>
+  </body>
+  

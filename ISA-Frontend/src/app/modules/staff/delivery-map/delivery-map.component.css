@@ -1,0 +1,17 @@
+#hotel_map {
+    height: 400px;
+    width: 100%;
+  }
+
+  h1{
+    color:white;
+  }
+
+  .msg{
+    background-color: rgba(150, 9, 9, 0.526);
+    width:50%;
+  }
+
+  li{
+    color:white;
+  }

@@ -1,0 +1,70 @@
+<start-toolbar></start-toolbar>
+<body>
+  <mat-card class="donor-registration-container">
+    <mat-card-header>
+      <h3>Registration</h3>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="registration-fields">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" name="email" [(ngModel)]="donor.email">
+      </mat-form-field>
+      <mat-form-field class="registration-fields">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" [(ngModel)]="donor.password">
+      </mat-form-field>
+      <mat-form-field class="registration-fields">
+        <mat-label>Confirm password</mat-label>
+        <input matInput type="password" name="confirmPassword" [(ngModel)]="passwordConfirm">
+      </mat-form-field>
+      <mat-form-field class="registration-fields">
+         <mat-label>Name</mat-label>
+         <input matInput type="text" name="name"  [(ngModel)]="donor.name">
+      </mat-form-field>
+      <mat-form-field class="registration-fields">
+         <mat-label>Surname</mat-label>
+         <input matInput type="text" name="surname" [(ngModel)]="donor.surname">
+      </mat-form-field>
+      <mat-radio-group [(ngModel)]="donor.gender" class="registration-fields">
+        <mat-label>Gender</mat-label>
+        <mat-radio-button id="1" value="MALE" name="male">Male</mat-radio-button>
+        <mat-radio-button id="2" value="FEMALE" name="female">Female</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field class="registration-fields">
+          <mat-label>Jmbg</mat-label>
+          <input matInput type="text" name="JMBG" [(ngModel)]="donor.JMBG">
+      </mat-form-field>
+      <mat-form-field class="registration-fields">
+          <mat-label>Workplace</mat-label>
+          <input matInput name="workplace" type="text" [(ngModel)]="donor.workplace">
+      </mat-form-field>
+      <mat-form-field class="registration-fields">
+          <mat-label>Profession</mat-label>
+          <input matInput type="text" name="profession" [(ngModel)]="donor.profession">
+      </mat-form-field>
+      <mat-form-field class="registration-fields">
+          <mat-label>Phone number</mat-label>
+          <input matInput type="text" name="phoneNumber" [(ngModel)]="donor.phoneNumber">
+      </mat-form-field>
+        <div class="flexbox">
+          <mat-form-field class="registration-fields">
+            <mat-label>Country</mat-label>
+              <input matInput name="state" type="text" [(ngModel)]="donor.state">             
+          </mat-form-field>
+          <mat-form-field class="registration-fields">
+            <mat-label>City</mat-label>
+            <input matInput type="text" name="city" [(ngModel)]="donor.city">
+          </mat-form-field>
+          <mat-form-field class="registration-fields">
+            <mat-label>Street address</mat-label>
+            <input matInput type="text" name="streetAddress" [(ngModel)]="donor.address">
+         </mat-form-field>
+       </div>      
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="btn" mat-button (click)="registerDonor()">
+        Register
+      </button> 
+    </mat-card-actions>
+   </mat-card>
+</body>

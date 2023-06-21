@@ -1,0 +1,31 @@
+<body>
+
+  <donor-toolbar></donor-toolbar>
+  <h3>Appointment History</h3>
+  <table mat-table [dataSource]="dataSource" class="fl-table">
+    <ng-container matColumnDef="center">
+      <th mat-header-cell *matHeaderCellDef class="cell-center"> Center </th>
+      <td mat-cell *matCellDef="let appointment" class="clickable cell-center">{{appointment.centerName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="staff">
+      <th mat-header-cell *matHeaderCellDef class="cell-center"> Staff </th>
+      <td mat-cell *matCellDef="let appointment" class="clickable cell-center">{{appointment.staffName}} {{appointment.staffSurname}}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef class="cell-center"> Date </th>
+      <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startDate}}</td>
+    </ng-container>
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef class="cell-center"> Duration </th>
+      <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.duration}}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef class="cell-center"> Status </th>
+      <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.status}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+</body>

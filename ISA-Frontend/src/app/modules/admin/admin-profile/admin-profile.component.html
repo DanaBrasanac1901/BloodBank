@@ -1,0 +1,22 @@
+<body>
+
+    <admin-toolbar></admin-toolbar>
+  
+    <div class="flexbox_row" style="margin-top: 5%;">
+  
+    <div class="flexbow_col">
+      <h3>Profile info</h3>
+    <mat-card>
+      <mat-card-title>{{admin.name}} {{admin.surname}}</mat-card-title>
+      <mat-card-content>
+        <p> Email: {{admin.email}}</p>
+      </mat-card-content>
+    </mat-card>
+    <div class="flexbox_row">
+      <button class="btn" (click)="changePassword()" >Change password</button>
+    </div>
+  
+</div>
+  
+  
+  

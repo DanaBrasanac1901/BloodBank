@@ -1,0 +1,64 @@
+<body>
+
+  <donor-toolbar></donor-toolbar>
+
+  <h3>Profile info</h3>
+  <form id="formlogin">
+    <table class="login_container">
+      <tr>
+        <input name="pass" type="checkbox" [(ngModel)]="passChange" style="margin-left:50%"><label for="pass">Change password?</label>
+      </tr>
+      <div class="flexbox_row">
+        <div class="flexbox_col">
+          <p>Name:</p>
+          <p>Surname:</p>
+          <p>Workplace:</p>
+          <p>Phone number:</p>
+          
+        </div>
+        <div class="flexbox_col" style="gap:45px">
+          <input name="name" type="text" placeholder="{{donor.name}}" [(ngModel)]="donor.name"/>
+          <input name="surname" type="text" placeholder="{{donor.surname}}" [(ngModel)]="donor.surname"/>
+          <input name="workplace" type="text" placeholder="{{donor.workplace}}" [(ngModel)]="donor.workplace"/>
+          <input name="phoneNumber" type="text" placeholder="{{donor.phoneNumber}}" [(ngModel)]="donor.phoneNumber"/>
+        </div>
+      </div>
+      <tr>
+        <td align="center" >
+          <div class="flexbox">
+            <p>Address:</p>
+            <p>City:</p>
+            <p>Country:</p>
+          </div>
+          <div class="flexbox" style="gap:10px;">
+            
+            <input type="text" style="width: 7rem;" name="adress" [(ngModel)]="address">
+            <input type="text" style="width: 7rem;" name="city" [(ngModel)]="city">
+            <input type="text" style="width: 7rem;" name="state" [(ngModel)]="country">
+
+          </div>
+
+        </td>
+      <tr>
+    <div class="flexbox_row" *ngIf="passChange">
+      <div class="flexbox_col">
+        <p>Password:</p>
+        <p>Confirm password:</p>
+      </div>
+      <div class="flexbox_col" style="gap:45px">
+        <input name="password" type="text"  [(ngModel)]="passwd"/>
+        <input name="password" type="text"  [(ngModel)]="passConfirm"/>
+      </div>
+
+    </div>
+
+        <tr>
+          <td align="center">
+            <button class="btn" (click)="edit()" >Apply</button>
+          </td>
+        </tr>
+
+      
+    </table>
+  </form>
+</body>

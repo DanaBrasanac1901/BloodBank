@@ -1,0 +1,24 @@
+<body>
+
+    <donor-toolbar style="width: 100%;"></donor-toolbar>
+    <div class="flexbox" style="gap:20px;margin-left:40% ;margin-top:3%;align-items: baseline;">
+        <img src="/assets/images/back.png" class="back_image"  (click)="backClick()"/>
+        <h3 >QR Codes</h3>
+      
+      </div>
+
+   
+      <table mat-table [dataSource]="dataSource"  class="fl-table" matSort #empTbSort="matSort">
+        <ng-container matColumnDef="staffId">
+            <th mat-header-cell *matHeaderCellDef  class="cell-center"> QR </th>
+            <td mat-cell *matCellDef="let appointment" class="clickable cell-center"><img class="qr_img" [src]='appointment.url'/></td>
+          </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef class="cell-center"  mat-sort-header> Date </th>
+          <td mat-cell *matCellDef="let appointment" class="cell-center">{{appointment.startDate}}</td>
+       </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+  </table>
+
+  </body>

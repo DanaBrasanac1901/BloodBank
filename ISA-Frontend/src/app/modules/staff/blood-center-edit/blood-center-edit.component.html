@@ -1,0 +1,36 @@
+<body>
+<staff-toolbar></staff-toolbar>
+<h3>Edit Center</h3>
+<div class="container" *ngIf="center">
+  <div class="fields">
+    <mat-label>Name</mat-label>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="center.name">
+    </mat-form-field><br>
+    <mat-label>Adress</mat-label>
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <input matInput [(ngModel)]="address!.country">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>City</mat-label>
+      <input matInput [(ngModel)]="address!.city">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Street and number</mat-label>
+      <input matInput [(ngModel)]="address!.streetAddress">
+    </mat-form-field><br>
+    <mat-label>Description</mat-label>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="center.description">
+    </mat-form-field><br>
+     <mat-label>Average score</mat-label>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="center.avgScore">
+    </mat-form-field> 
+  </div>
+  <button class="bttn" mat-stroked-button (click)="updateCenter()">
+    Submit
+  </button>
+</div>
+</body>

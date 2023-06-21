@@ -1,0 +1,30 @@
+
+<body>
+<staff-toolbar></staff-toolbar>
+
+<h3>Edit Profile</h3>
+
+<div class="container" *ngIf="staff">
+  <div class="fields">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="staff.name">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Surname</mat-label>
+      <input matInput [(ngModel)]="staff.surname">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Phone number</mat-label>
+      <input matInput [(ngModel)]="staff.phoneNumber">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <input matInput [(ngModel)]="staff.addressString">
+    </mat-form-field><br>
+  </div>
+  <button class="bttn" mat-stroked-button  (click)="updateStaff()">
+    Submit
+  </button>
+</div>
+</body>

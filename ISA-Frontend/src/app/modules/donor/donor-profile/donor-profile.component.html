@@ -1,0 +1,30 @@
+<body>
+
+  <donor-toolbar></donor-toolbar>
+
+  <div class="flexbox_row" style="margin-top: 5%;">
+
+  <div class="flexbow_col">
+    <h3>Profile info</h3>
+  <mat-card>
+    <mat-card-title>{{donor.name}} {{donor.surname}}</mat-card-title>
+    <mat-card-content>
+      <p> Email: {{donor.email}}</p>
+      <p> Address: {{donor.addressString}} </p>
+      <p> Workplace: {{donor.workplace}}</p>
+      <p> Phone number: {{donor.phoneNumber}}</p>
+    </mat-card-content>
+  </mat-card>
+  <div class="flexbox_row">
+    <button class="btn" (click)="goToEditPage()" style="margin-left:40%">Edit profile</button>
+    <button class="btn" (click)="changePassword()" style="margin-left:40%">Change password</button>
+  </div>
+
+  </div>
+
+  <div class="flexbox_col">
+    <h2 class="title" >Strikes: {{donor.strikes}}</h2>
+  </div>
+
+
+

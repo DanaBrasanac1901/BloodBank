@@ -1,0 +1,38 @@
+<body>
+    <admin-toolbar></admin-toolbar>
+    <h3>Register center</h3>
+    <mat-card>
+        <form>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput type="text" name="name" [(ngModel)]="bloodCenter.name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Opening time</mat-label>
+                <input matInput type="time" [(ngModel)]="openingTime" name="openingTime">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Closing time</mat-label>
+                <input matInput type="time" [(ngModel)]="closingTime" name="closingTime">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <input matInput type="text" [(ngModel)]="address.streetAddress" name="address">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>City</mat-label>
+                <input matInput type="text" [(ngModel)]="address.city" name="city">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Country</mat-label>
+                <input matInput type="text" [(ngModel)]="address.country" name="state">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea name="description" [(ngModel)]="bloodCenter.description"></textarea>
+            </mat-form-field>
+            <button class="btn" (click)="registerCenter()">Register center</button>
+        </form>
+    </mat-card>
+</body>
+    

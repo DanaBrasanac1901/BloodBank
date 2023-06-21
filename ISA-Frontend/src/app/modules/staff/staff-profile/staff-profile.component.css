@@ -1,0 +1,33 @@
+.mat-card-title {
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
+.mat-card-content {
+  font-size: 18px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+p {
+  margin: 40px 20px 20px 20px;
+}
+
+.mat-card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 40px;
+  background-color: rgba(73, 6, 6, 0.55);
+  color:white;
+  border: #DCD6CC 1px solid;
+}
+
+.container {
+  display: flex;
+ 
+}
+
+
+

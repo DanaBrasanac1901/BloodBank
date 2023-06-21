@@ -1,0 +1,38 @@
+  <h2 mat-dialog-title>Add new appointment</h2>
+  <mat-dialog-content [formGroup]="form">
+
+    <div class="field">
+    <mat-form-field>
+      <mat-label>Date and time:</mat-label>
+      <input matInput [ngxMatDatetimePicker]="picker1" placeholder="Choose a date" formControlName="dateTime" [min]="minDate" >
+      <mat-datepicker-toggle matSuffix [for]="$any(picker1)"></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #picker1 [enableMeridian]="true"></ngx-mat-datetime-picker>
+     </mat-form-field>
+    </div>
+
+    <div class="field">
+     <mat-form-field>
+       <mat-label>Duration(in minutes):</mat-label>
+       <mat-select formControlName="duration">
+         <mat-option *ngFor="let num of numbers" [value]="num">
+           {{num}}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+      </div>
+    <div class="field">
+     <mat-form-field>
+       <mat-label>Staff:</mat-label>
+       <mat-select formControlName="staff">
+        <mat-option *ngFor="let staff of allStaff" [value]="staff.id">
+          {{staff.name}} {{staff.surname}}
+        </mat-option>
+        </mat-select>
+     </mat-form-field>
+     </div>
+
+</mat-dialog-content>
+  <mat-dialog-actions>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+  </mat-dialog-actions>

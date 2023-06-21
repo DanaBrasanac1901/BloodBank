@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../../node_modules/ol/ol.css">
+
+
+  <button (click)="sendMsg()">Start</button>
+  <button (click)="stopReceiving()">Stop</button>
+
+  <div class="row">
+    <div id="hotel_map">
+      
+    </div>
+  </div>
+
+  <div id="marker" title="Marker"></div>
+      <!-- Popup -->
+      <div id="popup"></div>
+  
+  <br>
+  <div class="row">
+    <div class="column">
+      <textarea [(ngModel)]="content" name="contentInput" cols="40" rows="5"></textarea>
+      <br>
+      
+    </div>
+  
+  </div>
+  <br>
+  <div>
+    <h1>Sent Messages</h1>
+    <br>
+    <ul>
+      <li *ngFor="let item of sent">Source: {{item.source}} -> Content {{item.content}}</li>
+    </ul>
+  </div>
+  
+  <br>
+  <div>
+    <h1>Received Messages</h1>
+    <br>
+    <ul>
+      <li *ngFor="let item of received">Source: {{item.source}} -> Content {{item.content}}</li>
+    </ul>
+  </div>

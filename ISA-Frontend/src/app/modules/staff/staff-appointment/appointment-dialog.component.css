@@ -1,0 +1,28 @@
+.mat-form-field{
+   display:grid;
+   font-size: 20px;
+   background-color:dimgray;
+
+}
+
+h2{
+    font-size: 22px;
+}
+
+.mat-dialog-actions{
+    padding: 30px;
+
+}
+
+button{
+    margin: 30px;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+

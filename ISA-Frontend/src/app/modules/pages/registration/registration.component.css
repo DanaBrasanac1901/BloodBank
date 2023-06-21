@@ -1,0 +1,96 @@
+h3 {
+  font-size: 26px;
+  color: rgb(226, 207, 207);
+  font-weight:200;
+  font-stretch:ultra-condensed;
+}
+
+.flexbox {
+  display: flex;
+  flex-flow: row;
+  justify-content: baseline;
+  align-items: baseline;
+  gap:5px;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.donor-registration-container {
+  height: 570px;
+  overflow-y: scroll;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:6%;
+  background-color: rgba(85, 0, 0, 0.703);
+  width: 40%;
+  padding: 20px;
+  border:1px white solid;
+  border-radius: 10px;
+  
+}
+
+.registration-fields{
+  width: 100%;
+  color: rgb(226, 207, 207);
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+
+.registration-fields input{
+  color: rgb(226, 207, 207);
+  height: 40px;
+}
+
+.btn {
+  margin-left: 40%;
+  color:#670200;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 15px;
+  transition: all .2s;
+  position: relative;
+  border: none;
+  background-color: white;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  font-size: 14px;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  opacity: 0 !important; /*click effect color change*/
+  background-color: #c0ace6 !important;  }
+  
+  .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #ded0f7 !important; /*inner circle color change*/  }
+  
+  .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle{
+  border-color: #d4c6f0 !important; /*outer ring color change*/  }
+
+  .mat-mdc-radio-button .mdc-radio .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle {
+    border-color: #d4c6f0 !important; /*outer ring color change*/ 
+  }
+
+  mat-radio-group mat-radio-button .mat-mdc-radio-button {
+    color: white;
+    border-color:white;
+  }
+  
+
+  

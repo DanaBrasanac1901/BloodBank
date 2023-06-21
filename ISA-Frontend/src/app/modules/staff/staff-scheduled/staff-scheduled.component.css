@@ -1,0 +1,42 @@
+.container {
+    margin-top:2%;
+    margin-left: 35%;
+    
+   }
+   
+   .content {
+     display: inline-block;
+   }
+   
+   th {
+     text-align: center;
+     font-size: 18px;
+     color: white;
+   }
+   
+   .cell-center {
+     text-align: center;
+     font-size: 16px;
+     color: white;
+   }
+   
+   .table-title {
+     padding-bottom: 20px;
+     padding-top: 30px;
+     padding-left: 20px;
+     font-size: 30px;
+     text-align: center;
+     color: white;
+   }
+   
+   table {
+     width: 100%;
+     background-color: rgba(163, 23, 23, 0.467);
+     color: white;
+   }
+   
+   p {
+     margin: 40px 20px 20px 20px;
+   }
+   
+   

@@ -1,0 +1,30 @@
+<body>
+    <admin-toolbar></admin-toolbar>
+    <h3>Admin registration</h3>
+    <mat-card>
+      <form class="admin-registration form">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="admin.email">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="admin.email">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" [(ngModel)]="admin.name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Surname</mat-label>
+        <input matInput type="text" [(ngModel)]="admin.surname">
+      </mat-form-field>
+      <mat-form-field>
+          <mat-label>Gender</mat-label>
+          <mat-radio-button name="gender" value="1" [(ngModel)]="admin.gender">Male</mat-radio-button>
+          <mat-radio-button name="gender" value="2" [(ngModel)]="admin.gender">Female</mat-radio-button>
+      </mat-form-field>
+    <button class="btn" (click)="registerAdmin()" >Register admin</button>
+      </form>
+    </mat-card>
+  </body>

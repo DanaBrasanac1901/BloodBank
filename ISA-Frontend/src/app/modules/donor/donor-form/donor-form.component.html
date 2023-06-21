@@ -1,0 +1,20 @@
+
+<body>
+    <donor-toolbar></donor-toolbar>
+    <h3>Form</h3>
+    <table class="fl-table" style="width: 70%; margin-left:15%">
+        <tr>
+            <th colspan="2">Form questions</th>
+          </tr>
+          <tr *ngFor="let question of questions">
+            <td>{{question.text}}</td>
+            <td><input type="checkbox" value="{{question.id}}" [(ngModel)]="question.checked"></td>
+            
+          </tr>
+          <tr >
+            <td colspan="2">
+            <button class="btn" (click)="sendForm()" style="margin-left:-5% ;">Send form</button>
+          </td>
+          </tr>
+    </table>
+</body>

@@ -1,0 +1,20 @@
+.mat-toolbar {
+  background-color: rgb(45, 5, 5);
+  font: bold 17px verdana;
+  color: white;
+  min-height: 60px;
+  position: fixed;
+}
+
+.mat-button {
+  color: white;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.button {
+  font:  16px verdana;
+  background:  rgb(45, 5, 5);
+}
