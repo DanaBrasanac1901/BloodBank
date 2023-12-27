@@ -1,10 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-
-body { margin: 0; 
+body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    overflow: hidden;
     background-image: url(/assets/images/blood.jpg);
     background-size: cover;
     background-position: center center;
@@ -14,6 +10,7 @@ body { margin: 0;
     width: 100vw;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
 .btn {
@@ -24,15 +21,29 @@ body { margin: 0;
     border-color: rgb(0, 0, 0);
     background-color: rgba(36, 36, 36, 0.681);
     color: white;
-  }
+}
   
-    .btn:hover {
+.btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+}
   
-    .btn:active {
+.btn:active {
       transform: translateY(-1px);
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    }
+}
   
+h3 {
+  font-size: 26px;
+  color: rgb(226, 207, 207);
+  font-weight:200;
+  font-stretch:ultra-condensed;
+}
+
+mat-form-field {
+  color: white;
+}
+    
+mat-label{
+  color: white;
+}
