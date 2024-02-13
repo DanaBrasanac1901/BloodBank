@@ -53,6 +53,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
     .Get<EmailConfiguration>();
     builder.Services.AddSingleton(emailConfig);
 
+/* Anjino 
     builder.Services.AddMassTransit(config =>
     {
         config.AddConsumer<LocationConsumer>();
@@ -67,7 +68,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             });
         });
     });
-
+*/
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
