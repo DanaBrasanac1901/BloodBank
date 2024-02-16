@@ -30,10 +30,12 @@ namespace BloodBankAPI.Controllers
                     return Conflict("Registration unsuccessful, user with email "+ dto.Email+" already exists!");
                 }
 
+                dto.Password = _authService.HashPassword(dto.Password);
                 await _authService.RegisterDonor(dto);
+                await _authService.SaveData();
                 string token = await _authService.PrepareActivationToken(dto.Email);
                 string href = Url.Action("Activate", "Authentication", new { email = dto.Email, token = token }, "http");
-                await _authService.SendActivationLink(dto.Email, href);
+                _authService.SendActivationLink(dto.Email, href);
                 return Ok("User registered successfully, sending activation link!");
             }
             catch (Exception ex)
@@ -75,8 +77,9 @@ namespace BloodBankAPI.Controllers
                 {
                     return Conflict("Registration unsuccessful, user with email " + dto.Email + " already exists!");
                 }
-
+                dto.Password = _authService.HashPassword(dto.Password);
                 await _authService.RegisterStaff(dto);
+                await _authService.SaveData();
                 return Ok("User registered successfully");
             }
             catch (Exception ex)
@@ -94,8 +97,9 @@ namespace BloodBankAPI.Controllers
                 {
                     return Conflict("Registration unsuccessful, user with email " + dto.Email + " already exists!");
                 }
-
+                dto.Password = _authService.HashPassword(dto.Password);
                 await _authService.RegisterAdmin(dto);
+                await _authService.SaveData();
                 return Ok("User registered successfully!");
             }
             catch (Exception ex)

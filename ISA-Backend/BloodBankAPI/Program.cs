@@ -12,7 +12,6 @@ using BloodBankAPI.Services.Questions;
 using BloodBankAPI.Services.Users;
 using BloodBankAPI.Settings;
 using BloodBankAPI.UnitOfWork;
-using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

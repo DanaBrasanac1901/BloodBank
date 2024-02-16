@@ -87,7 +87,7 @@ namespace BloodBankAPI.Settings
          
             Admin admin = new Admin(){Id=1, Name = "Marko",
                 Surname = "Dobrosavljevic",
-                Gender = Gender.FEMALE,
+                Gender = Gender.MALE,
                 Email = "admin@gmail.com",
                 IsActive=true,
                 Token = null,
@@ -95,8 +95,19 @@ namespace BloodBankAPI.Settings
                 UserType = UserType.ADMIN};
             modelBuilder.Entity<Admin>().HasData(admin);
 
-            Donor donor = new Donor() { Id = 2, Jmbg = 34242423565, Address = "Ise Bajica 1,Novi Sad,Srbija", PhoneNumber = 381629448332, Profession = "student", Workplace = "Fakultet Tehnickih Nauka", Strikes = 0, Name = "Emilija", Surname = "Medic", Gender = Gender.FEMALE, Email = "donor@gmail.com", IsActive = true, Token = null, Password = "AM/u63R1v9SxmknTfBDYIFJgB3+ABmOQZValIoEB0rsuGtKi4HhVbUca8lDFsZDRTA==", UserType = UserType.DONOR };
-            Staff staff = new Staff() { Id = 3, Name = "Milan", Surname = "Miric", Gender = Gender.MALE, Email = "staff@gmail.com", IsActive = true, Token = null, Password = "AM/u63R1v9SxmknTfBDYIFJgB3+ABmOQZValIoEB0rsuGtKi4HhVbUca8lDFsZDRTA==", UserType = UserType.STAFF, BloodCenterId = 1};
+            Donor donor = new Donor() { Id = 2, Jmbg = 34242423565, 
+                Address = "Ise Bajica 1,Novi Sad,Srbija", 
+                PhoneNumber = 381629448332, Profession = "student", 
+                Workplace = "Fakultet Tehnickih Nauka", Strikes = 0, 
+                Name = "Emilija", Surname = "Medic", Gender = Gender.FEMALE, 
+                Email = "donor@gmail.com", IsActive = true, Token = null, 
+                Password = "AM/u63R1v9SxmknTfBDYIFJgB3+ABmOQZValIoEB0rsuGtKi4HhVbUca8lDFsZDRTA==", 
+                UserType = UserType.DONOR };
+
+            Staff staff = new Staff() { Id = 3, Name = "Milan", Surname = "Miric", 
+                Gender = Gender.MALE, Email = "staff@gmail.com", IsActive = true, 
+                Token = null, Password = "AM/u63R1v9SxmknTfBDYIFJgB3+ABmOQZValIoEB0rsuGtKi4HhVbUca8lDFsZDRTA==", 
+                UserType = UserType.STAFF, BloodCenterId = 1};
            
 
             modelBuilder.Entity<Donor>().HasData(donor);

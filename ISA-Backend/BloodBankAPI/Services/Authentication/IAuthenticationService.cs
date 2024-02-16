@@ -9,10 +9,12 @@ namespace BloodBankAPI.Services.Authentication
         Task RegisterDonor(DonorRegistrationDTO dto);
         Task RegisterStaff(StaffRegistrationDTO dto);
         Task RegisterAdmin(AdminRegistrationDTO dto);
+        String HashPassword(string password);
+        Task SaveData();
         Task<bool> CheckIfEmailExistsAsync(string email);
         Task<bool> EmailMatchesPasswordAsync(LoginDTO dto);
         Task<string> LogInUserAsync(LoginDTO dto);
-        Task SendActivationLink(string email, string link);
+        void SendActivationLink(string email, string link);
         Task<bool> ActivateAccount(string email, string token);
         Task<string> PrepareActivationToken(string email);
 
