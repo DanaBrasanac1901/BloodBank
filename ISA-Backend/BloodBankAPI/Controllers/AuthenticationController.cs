@@ -23,6 +23,10 @@ namespace BloodBankAPI.Controllers
 		[HttpPost("Register/Donor")]
 		public async Task<IActionResult> RegisterDonor(DonorRegistrationDTO dto)
 		{
+            if(!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
             try
             {
                 if (await _authService.CheckIfEmailExistsAsync(dto.Email))

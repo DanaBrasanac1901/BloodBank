@@ -162,10 +162,11 @@ namespace BloodBankAPI.Services.Authentication
         {
             Account account = await GetUserByEmailAsync(email);
             if(token == null || account.UserType != UserType.DONOR) return false;
-            if (TokenIsValid(account.Token, token ))
+            if (account.Token != null && TokenIsValid(account.Token, token ))
             {
                 account.IsActive = true;
                 await UpdateAccount(account);
+                return true;
             }
             return false;
 

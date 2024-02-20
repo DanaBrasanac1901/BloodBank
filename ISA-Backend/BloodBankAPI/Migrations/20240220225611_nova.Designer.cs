@@ -4,6 +4,7 @@ using BloodBankAPI.Materials.Enums;
 using BloodBankAPI.Settings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BloodBankAPI.Migrations
 {
     [DbContext(typeof(BloodBankDbContext))]
-    partial class BloodBankDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240220225611_nova")]
+    partial class nova
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -406,9 +408,8 @@ namespace BloodBankAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Jmbg")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<long>("Jmbg")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -439,7 +440,7 @@ namespace BloodBankAPI.Migrations
                             Surname = "Medic",
                             UserType = UserType.DONOR,
                             Address = "Ise Bajica 1,Novi Sad,Srbija",
-                            Jmbg = "34242423565",
+                            Jmbg = 34242423565L,
                             PhoneNumber = "381629448332",
                             Profession = "student",
                             Strikes = 0,

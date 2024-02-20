@@ -95,9 +95,9 @@ namespace BloodBankAPI.Settings
                 UserType = UserType.ADMIN};
             modelBuilder.Entity<Admin>().HasData(admin);
 
-            Donor donor = new Donor() { Id = 2, Jmbg = 34242423565, 
+            Donor donor = new Donor() { Id = 2, Jmbg = "34242423565", 
                 Address = "Ise Bajica 1,Novi Sad,Srbija", 
-                PhoneNumber = 381629448332, Profession = "student", 
+                PhoneNumber = "381629448332", Profession = "student", 
                 Workplace = "Fakultet Tehnickih Nauka", Strikes = 0, 
                 Name = "Emilija", Surname = "Medic", Gender = Gender.FEMALE, 
                 Email = "donor@gmail.com", IsActive = true, Token = null, 
