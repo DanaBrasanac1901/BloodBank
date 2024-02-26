@@ -39,7 +39,7 @@ namespace BloodBankAPI.Services.BloodCenters
 
         public async Task<BloodCenter> GetById(int id)
         {
-           return await _unitOfWork.CenterRepository.GetByIdAsync(id);
+           return await _unitOfWork.CenterRepository.GetByIdAsync(id) ?? throw new Exception("Center not found!");
         }
 
         public async Task Create(BloodCenter bloodCenter)
@@ -48,8 +48,9 @@ namespace BloodBankAPI.Services.BloodCenters
            await _unitOfWork.SaveAsync();
         }
 
-        public async Task Update(BloodCenter bloodCenter)
+        public async Task Update(BloodCenter bloodCenter, CenterDTO dto)
         {
+            bloodCenter = _mapper.Map(dto, bloodCenter);
             _unitOfWork.CenterRepository.Update(bloodCenter);
             await _unitOfWork.SaveAsync();
         }

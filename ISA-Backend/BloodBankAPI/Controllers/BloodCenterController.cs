@@ -1,4 +1,5 @@
-﻿using BloodBankAPI.Model;
+﻿using BloodBankAPI.Materials.DTOs;
+using BloodBankAPI.Model;
 using BloodBankAPI.Services.Addresses;
 using BloodBankAPI.Services.BloodCenters;
 using Microsoft.AspNetCore.Mvc;
@@ -72,21 +73,16 @@ namespace BloodBankAPI.Controllers
 
         // PUT api/bloodCenters/2
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, BloodCenter bloodCenter)
+        public async Task<ActionResult> Update(CenterDTO bloodCenter)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            if (id != bloodCenter.Id)
-            {
-                return BadRequest();
-            }
-
             try
             {
-                await _bloodCenterService.Update(bloodCenter);
+                BloodCenter center = await _bloodCenterService.GetById(bloodCenter.Id);
+                await _bloodCenterService.Update(center,bloodCenter);
             }
             catch
             {

@@ -81,7 +81,7 @@ namespace BloodBankAPI.Services.Users
             {
                 throw new Exception("No donor with "+ dto.Email + " email exists!");
             }
-            dbDonor = _mapper.Map<Donor>(dto);
+            dbDonor = _mapper.Map(dto,dbDonor);
             _unitOfWork.DonorRepository.Update(dbDonor);
             await _unitOfWork.SaveAsync();
         }
@@ -89,7 +89,7 @@ namespace BloodBankAPI.Services.Users
         public async Task UpdateStaff(StaffProfileUpdateDTO dto)
         {
             Staff dbStaff = await GetStaffByEmail(dto.Email) ?? throw new Exception("No donor with " + dto.Email + " email exists!");
-            dbStaff = _mapper.Map<Staff>(dto);
+            dbStaff = _mapper.Map(dto,dbStaff);
             _unitOfWork.StaffRepository.Update(dbStaff);
            await _unitOfWork.SaveAsync();
         }
