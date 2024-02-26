@@ -3,6 +3,9 @@
     public class AccessTokenDTO
     {
         public string AccessToken { get; set; }
-        public AccessTokenDTO(){}
+        public AccessTokenDTO(string token){
+
+            AccessToken = token;
+        }
     }
 }

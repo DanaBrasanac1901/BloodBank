@@ -35,6 +35,11 @@ namespace BloodBankAPI.Materials.Automapper
                    opt => opt.MapFrom(src => src.Center.Name));
 
             CreateMap<CancelledAppointment, Appointment>().ReverseMap();
+            CreateMap<DonorProfileUpdateDTO, Donor>().ForMember(
+                dest => dest.Address,
+                opt => opt
+                .MapFrom(src => src.Address + ", " + src.City + ", " + src.State));
+            CreateMap<StaffProfileUpdateDTO, Staff>();
         }
     }
 }

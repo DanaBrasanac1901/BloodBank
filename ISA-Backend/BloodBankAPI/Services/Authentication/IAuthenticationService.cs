@@ -13,7 +13,7 @@ namespace BloodBankAPI.Services.Authentication
         Task SaveData();
         Task<bool> CheckIfEmailExistsAsync(string email);
         Task<bool> EmailMatchesPasswordAsync(LoginDTO dto);
-        Task<string> LogInUserAsync(LoginDTO dto);
+        Task<AccessTokenDTO> LogInUserAsync(LoginDTO dto);
         void SendActivationLink(string email, string link);
         Task<bool> ActivateAccount(string email, string token);
         Task<string> PrepareActivationToken(string email);

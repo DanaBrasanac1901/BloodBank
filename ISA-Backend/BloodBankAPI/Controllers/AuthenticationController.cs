@@ -121,8 +121,8 @@ namespace BloodBankAPI.Controllers
 			{
 				if(await _authService.EmailMatchesPasswordAsync(dto))
 				{
-                    var tokenDTO = await _authService.LogInUserAsync(dto);
-					return Ok(tokenDTO);
+                    AccessTokenDTO token = await _authService.LogInUserAsync(dto);
+					return Ok(token);
 				}
 				else
 				{

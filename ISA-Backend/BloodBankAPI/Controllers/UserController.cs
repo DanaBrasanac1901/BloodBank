@@ -1,4 +1,6 @@
-﻿using BloodBankAPI.Model;
+﻿using BloodBankAPI.Materials.DTOs;
+using BloodBankAPI.Model;
+using BloodBankAPI.Services.Authentication;
 using BloodBankAPI.Services.Users;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Eventing.Reader;
@@ -11,6 +13,7 @@ namespace BloodBankAPI.Controllers
     {
 
         private readonly IUserService _userService;
+        private readonly IAuthenticationService _authenticationService;
 
         public UserController(IUserService userService)
         {
@@ -30,8 +33,8 @@ namespace BloodBankAPI.Controllers
         }
 
 
-        [HttpPut("Donor")]
-        public async Task<ActionResult> UpdateDonor(Donor donor)
+        [HttpPatch("Donor")]
+        public async Task<ActionResult> UpdateDonor(DonorProfileUpdateDTO donor)
         {
             if (!ModelState.IsValid)
             {
@@ -39,19 +42,47 @@ namespace BloodBankAPI.Controllers
             }
             try
             {
-                await _userService.UpdateDonor(donor);
-            }
-            catch
-            {
-                return BadRequest();
-            }
+                if (!await _authenticationService.CheckIfEmailExistsAsync(donor.Email))
+                {
+                    return Conflict("Update unsuccessful, user with email " + donor.Email + " doesn't exist!");
+                }
 
-            return Ok();
+                await _userService.UpdateDonor(donor);
+                return Ok("Profile was successfully updated!");
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
 
-       
-       [HttpGet("Donor/{id}")]
+        [HttpPatch("Staff")]
+        public async Task<ActionResult> UpdateStaff(StaffProfileUpdateDTO staff)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            try
+            {
+                if (!await _authenticationService.CheckIfEmailExistsAsync(staff.Email))
+                {
+                    return Conflict("Update unsuccessful, user with email " + staff.Email + " doesn't exist!");
+                }
+
+                await _userService.UpdateStaff(staff);
+                return Ok("Profile was successfully updated!");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+
+
+        [HttpGet("Donor/{id}")]
        public async Task<ActionResult> GetDonorById(int id)
        {
             try

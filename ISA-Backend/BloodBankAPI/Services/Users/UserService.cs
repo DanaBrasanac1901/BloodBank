@@ -1,4 +1,6 @@
-﻿using BloodBankAPI.Materials.Enums;
+﻿using AutoMapper;
+using BloodBankAPI.Materials.DTOs;
+using BloodBankAPI.Materials.Enums;
 using BloodBankAPI.Model;
 using BloodBankAPI.UnitOfWork;
 using System.Collections.Generic;
@@ -8,6 +10,7 @@ namespace BloodBankAPI.Services.Users
     public class UserService : IUserService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public UserService(IUnitOfWork unitOfWork)
         {
@@ -47,6 +50,18 @@ namespace BloodBankAPI.Services.Users
            return await _unitOfWork.DonorRepository.GetByIdAsync(id);
         }
 
+        private async Task<Donor> GetDonorByEmail(string email)
+        {
+           IEnumerable<Donor> donors = await _unitOfWork.DonorRepository.GetByConditionAsync(db => db.Email.Equals(email));
+            return donors.FirstOrDefault();
+        }
+
+        private async Task<Staff> GetStaffByEmail(string email)
+        {
+            IEnumerable<Staff> staff = await _unitOfWork.StaffRepository.GetByConditionAsync(db => db.Email.Equals(email));
+            return staff.FirstOrDefault();
+        }
+
 
         public async Task<Staff> GetStaffById(int id)
         {
@@ -59,15 +74,23 @@ namespace BloodBankAPI.Services.Users
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task UpdateDonor(Donor donor)
+        public async Task UpdateDonor(DonorProfileUpdateDTO dto)
         {
-            _unitOfWork.DonorRepository.Update(donor);
+            Donor dbDonor = await GetDonorByEmail(dto.Email);
+            if (dbDonor == null)
+            {
+                throw new Exception("No donor with "+ dto.Email + " email exists!");
+            }
+            dbDonor = _mapper.Map<Donor>(dto);
+            _unitOfWork.DonorRepository.Update(dbDonor);
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task UpdateStaff(Staff staff)
+        public async Task UpdateStaff(StaffProfileUpdateDTO dto)
         {
-           _unitOfWork.StaffRepository.Update(staff);
+            Staff dbStaff = await GetStaffByEmail(dto.Email) ?? throw new Exception("No donor with " + dto.Email + " email exists!");
+            dbStaff = _mapper.Map<Staff>(dto);
+            _unitOfWork.StaffRepository.Update(dbStaff);
            await _unitOfWork.SaveAsync();
         }
     }

@@ -60,7 +60,7 @@ namespace BloodBankAPI.Services.Authentication
             return accounts.FirstOrDefault();
         }
 
-        public async Task<string> LogInUserAsync(LoginDTO dto)
+        public async Task<AccessTokenDTO> LogInUserAsync(LoginDTO dto)
         {
             Account account = await GetUserByEmailAsync(dto.Email);
             var claims = new List<Claim>
@@ -71,7 +71,7 @@ namespace BloodBankAPI.Services.Authentication
                 new Claim(ClaimTypes.GivenName, account.Name),
                 new Claim(ClaimTypes.Surname, account.Surname),
             };
-            return GenerateToken(claims);
+            return new AccessTokenDTO(GenerateToken(claims));
         }
 
         private string GenerateToken(IEnumerable<Claim> claims)

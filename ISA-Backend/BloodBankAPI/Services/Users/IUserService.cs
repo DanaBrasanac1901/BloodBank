@@ -1,5 +1,6 @@
 ﻿
 
+using BloodBankAPI.Materials.DTOs;
 using BloodBankAPI.Model;
 
 namespace BloodBankAPI.Services.Users
@@ -7,8 +8,8 @@ namespace BloodBankAPI.Services.Users
     public interface IUserService
     {
         Task<IEnumerable<Donor>> GetAllDonors();
-        Task UpdateDonor(Donor donor);
-        Task UpdateStaff(Staff staff);
+        Task UpdateDonor(DonorProfileUpdateDTO donor);
+        Task UpdateStaff(StaffProfileUpdateDTO staff);
         Task UpdateAdmin(Admin admin);
         Task<Donor> GetDonorById(int id);
         Task<Staff> GetStaffById(int id);
