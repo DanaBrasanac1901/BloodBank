@@ -7,7 +7,7 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace BloodBankAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -15,9 +15,10 @@ namespace BloodBankAPI.Controllers
         private readonly IUserService _userService;
         private readonly IAuthenticationService _authenticationService;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IAuthenticationService authenticationService)
         {
             _userService = userService;
+            _authenticationService = authenticationService;
         }
 
         [HttpGet("Donor")]
@@ -47,6 +48,7 @@ namespace BloodBankAPI.Controllers
                     return Conflict("Update unsuccessful, user with email " + donor.Email + " doesn't exist!");
                 }
 
+                donor.Password = _authenticationService.HashPassword(donor.Password);
                 await _userService.UpdateDonor(donor);
                 return Ok("Profile was successfully updated!");
             }
@@ -70,7 +72,7 @@ namespace BloodBankAPI.Controllers
                 {
                     return Conflict("Update unsuccessful, user with email " + staff.Email + " doesn't exist!");
                 }
-
+                staff.Password = _authenticationService.HashPassword(staff.Password);
                 await _userService.UpdateStaff(staff);
                 return Ok("Profile was successfully updated!");
             }

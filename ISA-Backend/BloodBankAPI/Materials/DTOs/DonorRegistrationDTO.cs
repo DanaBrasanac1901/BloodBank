@@ -32,6 +32,8 @@ namespace BloodBankAPI.Materials.DTOs
         [Required(ErrorMessage = "All fields need to be filled out!")]
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "All fields need to be filled out!")]
+        [RegularExpression(@"(male)|(female)",
+            ErrorMessage = "Gender can either be male or female.")]
         public string Gender { get; set; }
         [Required(ErrorMessage = "All fields need to be filled out!")]
         public string JMBG { get; set; }
