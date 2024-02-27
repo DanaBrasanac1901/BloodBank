@@ -2,6 +2,7 @@
 using BloodBankAPI.Model;
 using BloodBankAPI.Services.Authentication;
 using BloodBankAPI.Services.Users;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Eventing.Reader;
 
@@ -21,6 +22,7 @@ namespace BloodBankAPI.Controllers
             _authenticationService = authenticationService;
         }
 
+        [Authorize(Roles ="STAFF,ADMIN")]
         [HttpGet("Donor")]
         public async Task<ActionResult> GetAllDonors()
         {
@@ -33,7 +35,7 @@ namespace BloodBankAPI.Controllers
             
         }
 
-
+        [Authorize(Roles = "DONOR")]
         [HttpPatch("Donor")]
         public async Task<ActionResult> UpdateDonor(DonorProfileUpdateDTO donor)
         {
@@ -58,7 +60,7 @@ namespace BloodBankAPI.Controllers
             }
         }
 
-
+        [Authorize(Roles = "STAFF")]
         [HttpPatch("Staff")]
         public async Task<ActionResult> UpdateStaff(StaffProfileUpdateDTO staff)
         {
@@ -83,8 +85,8 @@ namespace BloodBankAPI.Controllers
         }
 
 
-
-        [HttpGet("Donor/{id}")]
+       [Authorize]
+       [HttpGet("Donor/{id}")]
        public async Task<ActionResult> GetDonorById(int id)
        {
             try
@@ -102,6 +104,7 @@ namespace BloodBankAPI.Controllers
             }
        }
 
+        [Authorize(Roles ="STAFF")]
         [HttpGet("Staff/{id}")]
         public async Task<ActionResult> GetStaffById(int id)
         {
@@ -119,6 +122,7 @@ namespace BloodBankAPI.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("Admin/{id}")]
         public async Task<ActionResult> GetAdminById(int id)
         {
@@ -138,7 +142,7 @@ namespace BloodBankAPI.Controllers
             
         }
 
-
+       [Authorize] 
        [HttpDelete("Admin/{id}")]
        public async Task<ActionResult> DeleteAdmin(int id)
        {
@@ -159,6 +163,7 @@ namespace BloodBankAPI.Controllers
            
        }
 
+        [Authorize]
         [HttpDelete("Staff/{id}")]
         public async Task<ActionResult> DeleteStaff(int id)
         {
@@ -179,6 +184,7 @@ namespace BloodBankAPI.Controllers
            
         }
 
+        [Authorize]
         [HttpDelete("Donor/{id}")]
         public async Task<ActionResult> DeleteDonor(int id)
         {

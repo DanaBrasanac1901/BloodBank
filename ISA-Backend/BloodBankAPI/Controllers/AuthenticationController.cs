@@ -71,7 +71,7 @@ namespace BloodBankAPI.Controllers
             return BadRequest();
         }
 
-
+        [Authorize(Roles = "ADMIN")]
         [HttpPost("Register/Staff")]
         public async Task<IActionResult> RegisterStaff(StaffRegistrationDTO dto)
         {
@@ -92,6 +92,7 @@ namespace BloodBankAPI.Controllers
             }
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpPost("Register/Admin")]
         public async Task<IActionResult> RegisterAdmin(AdminRegistrationDTO dto)
         {
@@ -134,8 +135,6 @@ namespace BloodBankAPI.Controllers
             }
 		}
 
-
-
 		/*
 		[Authorize]
 		[HttpPut("changePassword")]
@@ -158,9 +157,6 @@ namespace BloodBankAPI.Controllers
 			
 			return Ok();
 		}
-	
-
-		
 		*/
     }
 }
