@@ -40,6 +40,7 @@ namespace BloodBankAPI.Materials.Automapper
                 opt => opt
                 .MapFrom(src => src.Address + ", " + src.City + ", " + src.State));
             CreateMap<StaffProfileUpdateDTO, Staff>();
+            CreateMap<Staff, StaffViewDTO>();
         }
     }
 }

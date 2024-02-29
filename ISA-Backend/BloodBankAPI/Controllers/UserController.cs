@@ -22,7 +22,7 @@ namespace BloodBankAPI.Controllers
             _authenticationService = authenticationService;
         }
 
-        [Authorize(Roles ="STAFF,ADMIN")]
+        [Authorize(Roles ="ADMIN")]
         [HttpGet("Donor")]
         public async Task<ActionResult> GetAllDonors()
         {
@@ -85,7 +85,7 @@ namespace BloodBankAPI.Controllers
         }
 
 
-       [Authorize]
+       [Authorize(Roles = "DONOR")]
        [HttpGet("Donor/{id}")]
        public async Task<ActionResult> GetDonorById(int id)
        {
@@ -110,11 +110,7 @@ namespace BloodBankAPI.Controllers
         {
             try {
             var user = await _userService.GetStaffById(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
+            if (user == null) return NotFound();
             return Ok(user);
             }catch (Exception ex)
             {
@@ -122,7 +118,7 @@ namespace BloodBankAPI.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles ="ADMIN")]
         [HttpGet("Admin/{id}")]
         public async Task<ActionResult> GetAdminById(int id)
         {
@@ -142,20 +138,14 @@ namespace BloodBankAPI.Controllers
             
         }
 
-       [Authorize] 
-       [HttpDelete("Admin/{id}")]
+        [Authorize(Roles = "ADMIN")]
+        [HttpDelete("Admin/{id}")]
        public async Task<ActionResult> DeleteAdmin(int id)
        {
             try
             {
-                var user = await _userService.GetAdminById(id);
-                if (user == null)
-                {
-                    return NotFound();
-                }
-
-                await _userService.DeleteAdmin(user);
-                return NoContent();
+                await _userService.DeleteAdmin(id);
+                return Ok("User successfully deleted!");
             }catch(Exception ex)
             {
                 return BadRequest(ex.Message);
@@ -163,42 +153,32 @@ namespace BloodBankAPI.Controllers
            
        }
 
-        [Authorize]
+        [Authorize(Roles = "ADMIN, STAFF")]
         [HttpDelete("Staff/{id}")]
         public async Task<ActionResult> DeleteStaff(int id)
         {
             try
             {
-                var user = await _userService.GetStaffById(id);
-                if (user == null)
-                {
-                    return NotFound();
-                }
-
-                await _userService.DeleteStaff(user);
-                return NoContent();
-            }catch(Exception ex)
+                await _userService.DeleteStaff(id);
+                return Ok("User successfully deleted!");
+            }
+            catch(Exception ex)
             {
                 return BadRequest(ex.Message);
             }
            
         }
 
-        [Authorize]
+        [Authorize(Roles = "ADMIN,STAFF, DONOR")]
         [HttpDelete("Donor/{id}")]
         public async Task<ActionResult> DeleteDonor(int id)
         {
             try
             {
-                var user = await _userService.GetDonorById(id);
-                if (user == null)
-                {
-                    return NotFound();
-                }
-
-                await _userService.DeleteDonor(user);
-                return NoContent();
-            }catch(Exception ex)
+                await _userService.DeleteDonor(id);
+                return Ok("User successfully deleted!");
+            }
+            catch(Exception ex)
             {
                 return BadRequest(ex.Message);
             }

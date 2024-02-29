@@ -18,22 +18,28 @@ namespace BloodBankAPI.Services.Users
             _mapper = mapper;
         }
 
-        public async Task DeleteAdmin(Admin admin)
+        public async Task DeleteAdmin(int id)
         {
+            Admin admin = await _unitOfWork.AdminRepository.GetByIdAsync(id);
+            if (admin == null) throw new Exception("Cant delete user because they do not exist!");
             _unitOfWork.AdminRepository.Delete(admin);
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task DeleteDonor(Donor donor)
+        public async Task DeleteDonor(int id)
         {
+            Donor donor = await _unitOfWork.DonorRepository.GetByIdAsync(id);
+            if(donor == null) throw new Exception("Cant delete user because they do not exist!");
             _unitOfWork.DonorRepository.Delete(donor);
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task DeleteStaff(Staff staff)
+        public async Task DeleteStaff(int id)
         {
-            _unitOfWork.StaffRepository.Delete(staff);
-            await _unitOfWork.SaveAsync();
+            Staff staff = await _unitOfWork.StaffRepository.GetByIdAsync(id);
+            if (staff == null) throw new Exception("Cant delete user because they do not exist!");    
+           _unitOfWork.StaffRepository.Delete(staff);
+           await _unitOfWork.SaveAsync();
         }
 
         public async Task<Admin> GetAdminById(int id)
@@ -64,9 +70,10 @@ namespace BloodBankAPI.Services.Users
         }
 
 
-        public async Task<Staff> GetStaffById(int id)
+        public async Task<StaffViewDTO> GetStaffById(int id)
         {
-           return await _unitOfWork.StaffRepository.GetByIdAsync(id);
+           Staff staff = await _unitOfWork.StaffRepository.GetByIdAsync(id);
+           return _mapper.Map<StaffViewDTO>(staff);
         }
 
         public async Task UpdateAdmin(Admin admin)

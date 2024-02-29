@@ -12,11 +12,11 @@ namespace BloodBankAPI.Services.Users
         Task UpdateStaff(StaffProfileUpdateDTO staff);
         Task UpdateAdmin(Admin admin);
         Task<Donor> GetDonorById(int id);
-        Task<Staff> GetStaffById(int id);
+        Task<StaffViewDTO> GetStaffById(int id);
         Task<Admin> GetAdminById(int id);
-        Task DeleteAdmin(Admin admin);
-        Task DeleteDonor(Donor donor);
-        Task DeleteStaff(Staff staff);
+        Task DeleteAdmin(int id);
+        Task DeleteDonor(int id);
+        Task DeleteStaff(int id);
 
 
     }
