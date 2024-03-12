@@ -1,0 +1,18 @@
+.homepage{
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+start-toolbar{
+    width: 100%;
+}
+
+centers-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}

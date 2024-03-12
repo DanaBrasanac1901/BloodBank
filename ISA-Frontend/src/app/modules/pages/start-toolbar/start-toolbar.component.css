@@ -3,7 +3,7 @@
     border-bottom: outset rgb(0, 0, 0);
     color: rgb(168, 167, 167);
     min-height: 60px;
-    position: fixed;
+    position: absolute;
   }
 
   .spacer {
