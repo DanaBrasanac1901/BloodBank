@@ -11,10 +11,6 @@
   border-radius: 10px;
 }
 
-::-webkit-scrollbar{
-  display: none;
-}
-
 .registration-fields{
   width: 100%;
   color: rgb(226, 207, 207);
@@ -25,4 +21,19 @@
 .registration-fields input{
   color: rgb(226, 207, 207);
   height: 40px;
+}
+
+.donor-registration-container mat-card-actions, mat-card-header{
+  justify-content: center;
+}
+
+.donor-registration-container button {
+  margin-top: 20px;
+  font-size: 15px;
+  color:white;
+  background-color: rgba(70, 1, 18, 0.995);
+}
+
+::-webkit-scrollbar{
+  display: none;
 }

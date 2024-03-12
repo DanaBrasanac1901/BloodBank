@@ -1,3 +1,4 @@
+<div class="login-page">
 <start-toolbar></start-toolbar>
   <mat-card class="login-container">
     <mat-card-header>
@@ -6,15 +7,15 @@
     <mat-card-content>
       <mat-form-field class="login-fields">
         <mat-label>Email</mat-label>
-        <input matInput  type="email" [(ngModel)]="user.email">
+        <input matInput  type="email" name="email" [(ngModel)]="user.email">
       </mat-form-field>
       <mat-form-field class="login-fields">
         <mat-label>Password</mat-label>
-        <input matInput type="password" [(ngModel)]="user.password">
+        <input matInput type="password" name="password" [(ngModel)]="user.password">
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button class="btn" mat-stroked-button (click)="login()"> Log in</button>
+      <button class="btn" mat-raised-button (click)="login()"> Log in</button>
     </mat-card-actions>
   </mat-card>
-  
+</div> 

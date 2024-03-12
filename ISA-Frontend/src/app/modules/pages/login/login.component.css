@@ -1,26 +1,46 @@
+.login-page{
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
 .login-container {
-  height: 570px;
+  height: 450px;
   margin-left: auto;
   margin-right: auto;
-  margin-top:6%;
+  margin-top: 10%;
   background-color: rgba(85, 0, 0, 0.703);
-  width: 100%;
+  width: 30%;
   padding: 20px;
   border:1px white solid;
-  border-radius: 10px;
+  border-radius: 10px; 
+}
+
+.login-container mat-card-header,
+ mat-card-actions, mat-card-content{
+  justify-content: center;
 }
 
 .login-fields {
-  padding: 5px 5px 0px 5px;
-  margin-top: 10px;
+  padding: 15px 15px 15px 15px;
+  margin: 15px 15px 15px 15px;
   border: solid 1px white;
   border-radius: 15px;
-  width: 100%;
+  width: 80%;
+}
+
+.login-container button {
+  margin-top: 20px;
+  font-size: 15px;
+  color:white;
+  background-color: rgba(70, 1, 18, 0.995);
 }
 
 .login-fields input {
   height: 45px;
   color: rgb(226, 207, 207);
 }
+
 
 
