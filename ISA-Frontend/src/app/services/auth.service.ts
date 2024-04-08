@@ -6,6 +6,8 @@ import { StaffRegistrationDTO } from 'app/model/staffRegistrationDTO';
 import { AdminRegistrationDTO } from 'app/model/adminRegistrationDTO';
 import { DonorRegistrationDTO } from 'app/model/donorRegistrationDTO';
 import { LoginDTO } from 'app/model/loginDTO';
+import { accessTokenModel } from 'app/model/accessTokenModel';
+import { JwtHeader, JwtPayload, jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -37,46 +39,8 @@ export class AuthService {
       return this.http.put<any>(this.apiHost + '/ChangePassword?email=' + email+'&newPass='+newPass, { headers: this.headers });
     }
 
-  public setSession(token:any) {
-    //localStorage.setItem('currentUser', JSON.stringify(token));
-    localStorage.setItem('role', token.claims[5].value);
-    localStorage.setItem('userId', token.claims[0].value);
-    localStorage.setItem('idByRole', token.claims[1].value);
-    localStorage.setItem('fullName', token.claims[3].value + ' ' + token.claims[4].value);
-    localStorage.setItem("expires_at", token.validTo);
-  }
-
     logout() {
       localStorage.clear();
-    }
-
-    public isLoggedIn() {
-      var currentDateTime = new Date().toISOString();
-      return currentDateTime < this.getExpiration()!;
-    }
-
-    isLoggedOut() {
-        return !this.isLoggedIn();
-    }
-
-    getExpiration() {
-      return localStorage.getItem("expires_at");
-    }
-
-    getRole() {
-    return localStorage.getItem("role");
-    }
-
-    getIdByRole() {
-      return localStorage.getItem("idByRole");
-    }
-
-    getUserId() {
-      return localStorage.getItem("userId");
-    }
-
-    getName() {
-      return localStorage.getItem("fullName");
     }
   }
 

@@ -14,28 +14,31 @@
 
 .centers-table {
     margin-top: 2%;
-    border-radius: 5px;
-    font-weight: normal;
-    border: none;
-    border-collapse: collapse;
     white-space: nowrap;
-    background-color: rgba(205, 126, 126, 0.208);
     color:white;
   }
   
-  .centers-table td, .centers-table th {
+.centers-table td {
       text-align: center;
       padding: 8px;
       font-size: 12px;
-  }
+}
+
+.mat-sort-header-container {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.centers-table th{
+  background-color: rgba(0, 0, 0, 0.31);
+}
   
-  .centers-table thead th:nth-child(odd) {
-      color: #ffffff;
-      background-color: rgba(211, 84, 84, 0);
-  }
+.centers-table tr:nth-child(odd) {
+   background-color: rgba(105, 8, 3, 0.653);
+}
   
-  .centers-table tr:nth-child(even) {
-    background-color: rgba(198, 87, 87, 0);
+.centers-table tr:nth-child(even) {
+    background-color: rgba(188, 27, 27, 0.352);
 }
 
   .input-search{

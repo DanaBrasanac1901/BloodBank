@@ -25,6 +25,7 @@
     "@angular/router": "^15.0.4",
     "@syncfusion/ej2-angular-maps": "^20.4.44",
     "@syncfusion/ej2-maps": "^20.4.44",
+    "jwt-decode": "^4.0.0",
     "moment": "^2.29.4",
     "ng-angular-popup": "^0.2.0",
     "ngx-material-timepicker": "^5.5.2",
